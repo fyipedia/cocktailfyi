@@ -23,6 +23,9 @@ Cocktail computation engine for developers -- measure parsing, ABV estimation, c
   - [Estimate Calories](#estimate-calories)
   - [Compute Flavor Profiles](#compute-flavor-profiles)
   - [Score Recipe Difficulty](#score-recipe-difficulty)
+  - [Cocktail Families](#cocktail-families)
+  - [ABV & Nutrition Science](#abv--nutrition-science)
+  - [Flavor Profile Dimensions](#flavor-profile-dimensions)
 - [Command-Line Interface](#command-line-interface)
 - [MCP Server (Claude, Cursor, Windsurf)](#mcp-server-claude-cursor-windsurf)
 - [REST API Client](#rest-api-client)
@@ -217,6 +220,104 @@ compute_difficulty(7)                               # 'hard'  — 7 ingredients
 ```
 
 Learn more: [Cocktail Explorer](https://cocktailfyi.com/categories/) | [Technique Glossary](https://cocktailfyi.com/glossary/)
+
+### Cocktail Families
+
+Cocktails are organized into families based on their structural recipe pattern rather than ingredients. A family defines the ratio template -- for example, a Sour is always a spirit + citrus + sweetener. Understanding families helps bartenders improvise: swap the spirit in a Sour template and you get a different drink with the same balance.
+
+| Family | Template | Classic Example | Flavor Signature |
+|--------|----------|----------------|-----------------|
+| Sour | Spirit + citrus + sweetener | Whiskey Sour, Margarita | Tart, balanced |
+| Old Fashioned | Spirit + sugar + bitters | Old Fashioned, Sazerac | Strong, spirit-forward |
+| Martini | Spirit + aromatized wine | Dry Martini, Manhattan | Clean, strong |
+| Highball | Spirit + long mixer | Gin & Tonic, Cuba Libre | Light, refreshing |
+| Fizz | Spirit + citrus + sweetener + soda | Gin Fizz, Ramos Gin Fizz | Effervescent, light |
+| Collins | Spirit + citrus + sweetener + soda (tall) | Tom Collins, John Collins | Tall, easy-drinking |
+| Daisy | Spirit + citrus + liqueur | Margarita, Sidecar | Fruity, balanced |
+| Flip | Spirit + whole egg + sweetener | Brandy Flip, Coffee Flip | Creamy, rich |
+| Julep | Spirit + sugar + mint (crushed ice) | Mint Julep | Herbaceous, cold |
+| Smash | Spirit + sugar + herb + citrus | Whiskey Smash | Muddled, fresh |
+| Swizzle | Spirit + citrus + sweetener (swizzled) | Queen's Park Swizzle | Tropical, frothy |
+| Toddy | Spirit + sweetener + hot water | Hot Toddy | Warm, soothing |
+| Punch | Spirit + citrus + sweetener + tea/spice | Planter's Punch | Batch, communal |
+| Tiki | Rum(s) + citrus + syrups + spice | Mai Tai, Zombie | Complex, tropical |
+| Ancestral | Spirit + sweetener + bitters (no citrus) | Sazerac, Vieux Carre | Bold, aromatic |
+
+```python
+from cocktailfyi import estimate_abv, compute_flavor_profile
+
+# A Sour family cocktail -- spirit + citrus + sweetener
+whiskey_sour = [
+    {"measure": "2 oz", "abv": 40.0},   # Bourbon (the spirit)
+    {"measure": "1 oz", "abv": 0},      # Lemon juice (the citrus)
+    {"measure": "3/4 oz", "abv": 0},    # Simple syrup (the sweetener)
+]
+abv = estimate_abv(whiskey_sour)  # ABV with 22% dilution from ice
+```
+
+Learn more: [Cocktail Families](https://cocktailfyi.com/family/) | [Browse All Categories](https://cocktailfyi.com/categories/) | [Cocktail Database](https://cocktailfyi.com/)
+
+### ABV & Nutrition Science
+
+Alcohol by Volume (ABV) measures the percentage of pure ethanol in a liquid. For mixed drinks, ABV depends on the volume and strength of each ingredient plus dilution from ice. The standard dilution assumption in professional bartending is 22% -- meaning roughly one-fifth of the final drink volume is water from melted ice.
+
+| Drink Style | Typical ABV | Dilution Source |
+|-------------|------------|----------------|
+| Neat spirit (no ice) | 40--46% | None |
+| Spirit on the rocks | 25--30% | Melting ice over time |
+| Stirred cocktail | 22--28% | 15--20% dilution (less vigorous) |
+| Shaken cocktail | 15--22% | 22--25% dilution (ice shatters) |
+| Highball (spirit + mixer) | 8--12% | Long mixer volume |
+| Beer/wine cocktail | 4--8% | Low-ABV base |
+
+The calorie calculation uses two methods depending on available data. For spirits without specific calorie data, the **alcohol calorie formula** derives calories from ethanol content: `volume x (ABV/100) x 0.789 g/ml x 7 kcal/g`. The 7 kcal/g figure is the caloric density of ethanol (compared to 4 kcal/g for carbohydrates and 9 kcal/g for fat).
+
+```python
+from cocktailfyi import estimate_abv, estimate_calories
+
+# Compare ABV across drink styles
+neat = estimate_abv([{"measure": "2 oz", "abv": 40.0}])           # Spirit-forward
+highball = estimate_abv([
+    {"measure": "2 oz", "abv": 40.0},
+    {"measure": "4 oz", "abv": 0},    # Mixer dilutes the ABV significantly
+])
+
+# Calorie estimation -- formula vs known data
+kcal = estimate_calories([
+    {"measure": "2 oz", "abv": 40.0, "calories_per_100ml": None},  # Ethanol formula
+    {"measure": "1 oz", "abv": 0, "calories_per_100ml": 40},       # Known calorie data
+])
+```
+
+Learn more: [ABV Calculator](https://cocktailfyi.com/tools/abv/) | [Calorie Calculator](https://cocktailfyi.com/tools/calories/) | [Guides](https://cocktailfyi.com/guide/)
+
+### Flavor Profile Dimensions
+
+The flavor profile system scores cocktails across 4 dimensions on a 0--10 scale, using volume-weighted averages of each ingredient's contribution. This quantitative approach enables programmatic cocktail comparison, recommendation engines, and data-driven recipe development.
+
+| Dimension | Scale | Low (0--3) | Medium (4--6) | High (7--10) |
+|-----------|-------|-----------|---------------|-------------|
+| Sweet | Sweetness intensity | Dry Martini, Negroni | Daiquiri, Cosmopolitan | Pina Colada, Mudslide |
+| Sour | Acidity / tartness | Old Fashioned, Manhattan | Whiskey Sour | Lemon Drop, Caipirinha |
+| Bitter | Bitterness level | Mojito, Margarita | Aperol Spritz | Negroni, Campari Soda |
+| Strong | Alcohol presence | Mimosa, Bellini | Gimlet, Daiquiri | Martini, Manhattan |
+
+```python
+from cocktailfyi import compute_flavor_profile
+
+# Compare flavor profiles of different cocktail styles
+negroni = compute_flavor_profile([
+    {"measure": "1 oz", "flavor_sweet": 2, "flavor_sour": 0,
+     "flavor_bitter": 8, "flavor_strong": 8},   # Gin
+    {"measure": "1 oz", "flavor_sweet": 7, "flavor_sour": 1,
+     "flavor_bitter": 9, "flavor_strong": 4},    # Campari
+    {"measure": "1 oz", "flavor_sweet": 8, "flavor_sour": 0,
+     "flavor_bitter": 3, "flavor_strong": 3},    # Sweet Vermouth
+])
+# Result: balanced bitter-sweet with strong alcohol presence
+```
+
+Learn more: [Flavor Profiles](https://cocktailfyi.com/flavor/) | [Cocktail Families](https://cocktailfyi.com/family/) | [Blog](https://cocktailfyi.com/blog/)
 
 ## Command-Line Interface
 
