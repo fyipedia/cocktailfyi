@@ -4,6 +4,10 @@ Cocktail computation engine for developers — measure parsing, ABV estimation, 
 
 Extracted from the [CocktailFYI](https://cocktailfyi.com) Django app as a standalone pure-Python library.
 
+<p align="center">
+  <img src="demo.gif" alt="cocktailfyi demo — cocktail engine and API usage" width="800">
+</p>
+
 ## Install
 
 ```bash
