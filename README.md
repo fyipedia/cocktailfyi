@@ -10,7 +10,7 @@ Cocktail computation engine for developers -- measure parsing, ABV estimation, c
 > **Try the interactive tools at [cocktailfyi.com](https://cocktailfyi.com)** -- [ABV Calculator](https://cocktailfyi.com/tools/abv/) , [Calorie Calculator](https://cocktailfyi.com/tools/calories/) , [Cocktail Explorer](https://cocktailfyi.com/categories/) , [Ingredient Guide](https://cocktailfyi.com/ingredient/)
 
 <p align="center">
-  <img src="demo.gif" alt="cocktailfyi demo — cocktail engine and API usage" width="800">
+  <img src="https://raw.githubusercontent.com/fyipedia/cocktailfyi/main/demo.gif" alt="cocktailfyi demo — cocktail engine and API usage" width="800">
 </p>
 
 ## Table of Contents
@@ -32,7 +32,6 @@ Cocktail computation engine for developers -- measure parsing, ABV estimation, c
 - [API Reference](#api-reference)
 - [Learn More About Cocktails](#learn-more-about-cocktails)
 - [Beverage FYI Family](#beverage-fyi-family)
-- [FYIPedia Developer Tools](#fyipedia-developer-tools)
 - [License](#license)
 
 ## Install
@@ -423,35 +422,17 @@ The full REST API at [cocktailfyi.com/developers/](https://cocktailfyi.com/devel
 
 ## Beverage FYI Family
 
+Part of the [FYIPedia](https://fyipedia.com) open-source developer tools ecosystem -- world beverages from cocktails to sake.
+
 | Site | Domain | Focus |
 |------|--------|-------|
-| CocktailFYI | [cocktailfyi.com](https://cocktailfyi.com) | 636 cocktail recipes, ABV, calories, flavor profiles |
-| VinoFYI | [vinofyi.com](https://vinofyi.com) | Wines, grapes, regions, wineries |
-| BeerFYI | [beerfyi.com](https://beerfyi.com) | 112 beer styles, hops, malts, yeast |
-| WhiskeyFYI | [whiskeyfyi.com](https://whiskeyfyi.com) | 80 whiskey expressions, distilleries |
-| TeaFYI | [teafyi.com](https://teafyi.com) | 60 tea varieties, brewing methods |
-| BrewFYI | [brewfyi.com](https://brewfyi.com) | 72 coffee varieties, roasting, brewing |
-| NihonshuFYI | [nihonshufyi.com](https://nihonshufyi.com) | 80 sake, rice varieties, breweries |
-
-## FYIPedia Developer Tools
-
-Part of the [FYIPedia](https://github.com/fyipedia) open-source developer tools ecosystem:
-
-| Package | PyPI | npm | Description |
-|---------|------|-----|-------------|
-| [colorfyi](https://colorfyi.com/) | [`colorfyi`](https://pypi.org/project/colorfyi/) | [`@fyipedia/colorfyi`](https://www.npmjs.com/package/@fyipedia/colorfyi) | Color conversion, WCAG contrast, harmonies, 809 named colors |
-| [emojifyi](https://emojifyi.com/) | [`emojifyi`](https://pypi.org/project/emojifyi/) | [`emojifyi`](https://www.npmjs.com/package/emojifyi) | Emoji encoding & metadata for 3,953 Unicode emojis |
-| [symbolfyi](https://symbolfyi.com/) | [`symbolfyi`](https://pypi.org/project/symbolfyi/) | [`symbolfyi`](https://www.npmjs.com/package/symbolfyi) | Symbol encoding in 11 formats + Unicode properties |
-| [unicodefyi](https://unicodefyi.com/) | [`unicodefyi`](https://pypi.org/project/unicodefyi/) | [`unicodefyi`](https://www.npmjs.com/package/unicodefyi) | Unicode character lookup, 17 encodings + search |
-| [fontfyi](https://fontfyi.com/) | [`fontfyi`](https://pypi.org/project/fontfyi/) | [`fontfyi`](https://www.npmjs.com/package/fontfyi) | Google Fonts metadata, CSS helpers, font pairings |
-| [distancefyi](https://distancefyi.com/) | [`distancefyi`](https://pypi.org/project/distancefyi/) | [`distancefyi`](https://www.npmjs.com/package/distancefyi) | Haversine distance, bearing, travel times |
-| [timefyi](https://timefyi.com/) | [`timefyi`](https://pypi.org/project/timefyi/) | [`timefyi`](https://www.npmjs.com/package/timefyi) | Timezone operations, time differences, sunrise/sunset |
-| [namefyi](https://namefyi.com/) | [`namefyi`](https://pypi.org/project/namefyi/) | [`namefyi`](https://www.npmjs.com/package/namefyi) | Korean romanization, Five Elements, CJK stroke count |
-| [unitfyi](https://unitfyi.com/) | [`unitfyi`](https://pypi.org/project/unitfyi/) | [`unitfyi`](https://www.npmjs.com/package/unitfyi) | Unit conversion, 220 units, 20 categories |
-| [holidayfyi](https://holidayfyi.com/) | [`holidayfyi`](https://pypi.org/project/holidayfyi/) | [`holidayfyi`](https://www.npmjs.com/package/holidayfyi) | Holiday dates, Easter calculation, 100+ countries |
-| **cocktailfyi** | [`cocktailfyi`](https://pypi.org/project/cocktailfyi/) | -- | Cocktail ABV, calories, flavor profiling |
-| [fyipedia](https://github.com/fyipedia/fyipedia) | [`fyipedia`](https://pypi.org/project/fyipedia/) | -- | Unified CLI (`fyi` command) for all tools |
-| [fyipedia-mcp](https://github.com/fyipedia/fyipedia-mcp) | [`fyipedia-mcp`](https://pypi.org/project/fyipedia-mcp/) | -- | Unified MCP server for AI assistants |
+| **CocktailFYI** | [cocktailfyi.com](https://cocktailfyi.com) | **636 cocktails, ABV, calories, flavor profiles** |
+| VinoFYI | [vinofyi.com](https://vinofyi.com) | Wines, grapes, regions, wineries, food pairings |
+| BeerFYI | [beerfyi.com](https://beerfyi.com) | 112 beer styles, hops, malts, yeast, BJCP |
+| BrewFYI | [brewfyi.com](https://brewfyi.com) | 72 coffee varieties, roasting, 21 brew methods |
+| WhiskeyFYI | [whiskeyfyi.com](https://whiskeyfyi.com) | 80 whiskey expressions, distilleries, regions |
+| TeaFYI | [teafyi.com](https://teafyi.com) | 60 tea varieties, teaware, brewing guides |
+| NihonshuFYI | [nihonshufyi.com](https://nihonshufyi.com) | 80 sake, rice varieties, 50 breweries |
 
 ## License
 
