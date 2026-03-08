@@ -1,25 +1,26 @@
-# cocktailfyi — Interactive Python REPL Demo
+# cocktailfyi — Python Cocktail Engine Demo
 Output demo.gif
 
-Set FontSize 14
-Set Width 920
-Set Height 620
+Set FontSize 20
+Set Width 1000
+Set Height 580
 Set Shell "zsh"
 Set Theme "Catppuccin Mocha"
 Set TypingSpeed 30ms
-Set Padding 20
+Set Padding 24
 
-# Install + REPL in one command (uv creates temp env)
 Type "uv run --with cocktailfyi python3"
 Enter
-Sleep 2.5s
+Sleep 2s
 
-# Import
-Type "from cocktailfyi import parse_measure_ml, estimate_abv, compute_difficulty"
+Type "from cocktailfyi import parse_measure_ml, estimate_abv"
 Enter
-Sleep 1.5s
+Sleep 1s
 
-# Measure parsing
+Type "# Parse cocktail measures"
+Enter
+Sleep 0.5s
+
 Type "parse_measure_ml('2 oz')"
 Enter
 Sleep 1.5s
@@ -28,15 +29,13 @@ Type "parse_measure_ml('1 1/2 oz')"
 Enter
 Sleep 1.5s
 
-# ABV estimation (Margarita)
+Type "# Estimate ABV (Margarita)"
+Enter
+Sleep 0.5s
+
 Type "estimate_abv([{'abv': 40, 'measure': '2 oz'}, {'abv': 30, 'measure': '1 oz'}, {'abv': 0, 'measure': '1 oz'}])"
 Enter
-Sleep 2s
-
-# Difficulty scoring
-Type "compute_difficulty(5, ['muddling', 'layering'])"
-Enter
-Sleep 2s
+Sleep 2.5s
 
 Type "exit()"
 Enter
