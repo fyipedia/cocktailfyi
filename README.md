@@ -1,6 +1,6 @@
 # cocktailfyi
 
-[![PyPI](https://img.shields.io/pypi/v/cocktailfyi)](https://pypi.org/project/cocktailfyi/)
+[![PyPI version](https://agentgif.com/badge/pypi/cocktailfyi/version.svg)](https://pypi.org/project/cocktailfyi/)
 [![Python](https://img.shields.io/pypi/pyversions/cocktailfyi)](https://pypi.org/project/cocktailfyi/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Zero Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](https://pypi.org/project/cocktailfyi/)
