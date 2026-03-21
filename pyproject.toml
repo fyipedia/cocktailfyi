@@ -1,6 +1,6 @@
 [project]
 name = "cocktailfyi"
-version = "0.1.2"
+version = "0.1.3"
 description = "Cocktail computation engine — measure parsing, ABV estimation, calorie calculation, flavor profiling, and difficulty scoring. Zero dependencies."
 readme = "README.md"
 license = "MIT"
@@ -42,6 +42,7 @@ all = ["cocktailfyi[api,cli,mcp]"]
 
 [project.scripts]
 cocktailfyi = "cocktailfyi.cli:app"
+cocktailfyi-mcp = "cocktailfyi.mcp_server:main"
 
 [project.entry-points."mcp.servers"]
 cocktailfyi = "cocktailfyi.mcp_server:mcp"
