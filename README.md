@@ -7,7 +7,7 @@
 
 Cocktail computation engine for developers -- measure parsing, ABV estimation, calorie calculation, flavor profiling, and difficulty scoring. Pure Python, zero dependencies, sub-millisecond per computation. Extracted from the [CocktailFYI](https://cocktailfyi.com) cocktail database of 636 recipes across 15 families and 11 categories.
 
-> **Try the interactive tools at [cocktailfyi.com](https://cocktailfyi.com)** -- [ABV Calculator](https://cocktailfyi.com/tools/abv/) , [Calorie Calculator](https://cocktailfyi.com/tools/calories/) , [Cocktail Explorer](https://cocktailfyi.com/categories/) , [Ingredient Guide](https://cocktailfyi.com/ingredient/)
+> **Try the interactive tools at [cocktailfyi.com](https://cocktailfyi.com)** -- , , [Cocktail Explorer](https://cocktailfyi.com/categories/) , [Ingredient Guide](https://cocktailfyi.com/ingredients/)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/fyipedia/cocktailfyi/main/demo.gif" alt="cocktailfyi demo — cocktail engine and API usage" width="800">
@@ -100,7 +100,7 @@ parse_measure_ml("garnish")   # 5.0   — descriptive measure
 parse_measure_ml("2 dashes")  # 2.0   — bitters
 ```
 
-Learn more: [Ingredient Guide](https://cocktailfyi.com/ingredient/) | [Glossary](https://cocktailfyi.com/glossary/)
+Learn more: [Ingredient Guide](https://cocktailfyi.com/ingredients/) | [Glossary](https://cocktailfyi.com/glossary/)
 
 ### Estimate ABV (Alcohol by Volume)
 
@@ -127,9 +127,7 @@ abv = estimate_abv([
 print(abv)  # Decimal('10.40')
 ```
 
-Learn more: [ABV Calculator](https://cocktailfyi.com/tools/abv/) | [Cocktail Families](https://cocktailfyi.com/family/)
-
-### Estimate Calories
+Learn more: | ### Estimate Calories
 
 Estimate total calories for a cocktail. When `calories_per_100ml` data is available, it uses that directly. For spirit-only ingredients without calorie data, it falls back to the **alcohol calorie formula**:
 
@@ -156,7 +154,7 @@ kcal = estimate_calories([
 print(kcal)  # 133
 ```
 
-Learn more: [Calorie Calculator](https://cocktailfyi.com/tools/calories/) | [Guides](https://cocktailfyi.com/guide/)
+Learn more: | [Guides](https://cocktailfyi.com/guide/)
 
 ### Compute Flavor Profiles
 
@@ -185,9 +183,7 @@ print(profile)
 
 The 15 cocktail families on CocktailFYI each have distinctive flavor signatures -- Sours lean sour/sweet, Old Fashioneds are strong/bitter, Fizzes are light/sweet, and Tiki drinks are sweet/sour with tropical complexity.
 
-Learn more: [Cocktail Families](https://cocktailfyi.com/family/) | [Blog](https://cocktailfyi.com/blog/)
-
-### Score Recipe Difficulty
+Learn more: | ### Score Recipe Difficulty
 
 Evaluate how difficult a cocktail recipe is to prepare based on ingredient count and techniques used.
 
@@ -254,7 +250,7 @@ whiskey_sour = [
 abv = estimate_abv(whiskey_sour)  # ABV with 22% dilution from ice
 ```
 
-Learn more: [Cocktail Families](https://cocktailfyi.com/family/) | [Browse All Categories](https://cocktailfyi.com/categories/) | [Cocktail Database](https://cocktailfyi.com/)
+Learn more: | [Browse All Categories](https://cocktailfyi.com/categories/) | [Cocktail Database](https://cocktailfyi.com/)
 
 ### ABV & Nutrition Science
 
@@ -288,7 +284,7 @@ kcal = estimate_calories([
 ])
 ```
 
-Learn more: [ABV Calculator](https://cocktailfyi.com/tools/abv/) | [Calorie Calculator](https://cocktailfyi.com/tools/calories/) | [Guides](https://cocktailfyi.com/guide/)
+Learn more: | | [Guides](https://cocktailfyi.com/guide/)
 
 ### Flavor Profile Dimensions
 
@@ -316,9 +312,7 @@ negroni = compute_flavor_profile([
 # Result: balanced bitter-sweet with strong alcohol presence
 ```
 
-Learn more: [Flavor Profiles](https://cocktailfyi.com/flavor/) | [Cocktail Families](https://cocktailfyi.com/family/) | [Blog](https://cocktailfyi.com/blog/)
-
-## Command-Line Interface
+Learn more: | | ## Command-Line Interface
 
 Requires the `cli` extra: `pip install cocktailfyi[cli]`
 
@@ -415,10 +409,8 @@ The full REST API at [cocktailfyi.com/developers/](https://cocktailfyi.com/devel
 
 ## Learn More About Cocktails
 
-- **Browse**: [Cocktail Database](https://cocktailfyi.com/) | [Families](https://cocktailfyi.com/family/) | [Ingredients](https://cocktailfyi.com/ingredient/) | [Categories](https://cocktailfyi.com/categories/)
-- **Tools**: [ABV Calculator](https://cocktailfyi.com/tools/abv/) | [Calorie Calculator](https://cocktailfyi.com/tools/calories/)
-- **Guides**: [Glossary](https://cocktailfyi.com/glossary/) | [Guides](https://cocktailfyi.com/guide/) | [Blog](https://cocktailfyi.com/blog/)
-- **API**: [REST API Docs](https://cocktailfyi.com/developers/) | [OpenAPI Spec](https://cocktailfyi.com/api/openapi.json)
+- **Browse**: [Cocktail Database](https://cocktailfyi.com/) | | [Ingredients](https://cocktailfyi.com/ingredients/) | [Categories](https://cocktailfyi.com/categories/)
+- **Tools**: | - **Guides**: [Glossary](https://cocktailfyi.com/glossary/) | [Guides](https://cocktailfyi.com/guide/) | - **API**: [REST API Docs](https://cocktailfyi.com/developers/) | [OpenAPI Spec](https://cocktailfyi.com/api/openapi.json)
 
 ## Beverage FYI Family
 
