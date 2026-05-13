@@ -437,6 +437,20 @@ Embed [CocktailFYI](https://cocktailfyi.com) widgets on any website with [cockta
 
 Zero dependencies · Shadow DOM · 4 themes (light/dark/sepia/auto) · [Widget docs](https://widget.cocktailfyi.com)
 
+<!-- WIDGET-OSS-MONITOR: cross-links START -->
+
+## Related Resources
+
+- **Widget Hub**: [widget.drinkfyi.com](https://widget.drinkfyi.com/) — interactive widgets for the Drink FYI ecosystem
+- **Main Site**: [drinkfyi.com](https://drinkfyi.com/) — full reference
+- **Family Network**: see [/developers/](https://drinkfyi.com/developers/) for sister packages
+
+## FYIPedia Ecosystem
+
+This package is part of the [FYIPedia](https://fyipedia.com) developer tools ecosystem. Sister packages in this family: see widget hub link above.
+
+<!-- WIDGET-OSS-MONITOR: cross-links END -->
+
 ## License
 
 MIT
